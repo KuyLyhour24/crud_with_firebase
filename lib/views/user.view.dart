@@ -123,7 +123,10 @@ class UserView extends StatelessWidget {
                                     onPressed: () => Navigator.of(context).pop(),
                                     child: Text("Cancel",style: TextStyle(fontSize: 20,color: Colors.lightBlue),),
                                   ),
-                                  TextButton(onPressed: () => userController.deleteUser(user.id!),
+                                  TextButton(onPressed: () {
+                                    userController.deleteUser(user.id!);
+                                    Navigator.of(context).pop();
+                                    },
                                     child: Text("Confirm",style: TextStyle(fontSize: 20,color: Colors.lightBlue),),)
                                 ],
                               ),

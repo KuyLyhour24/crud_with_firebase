@@ -1,4 +1,5 @@
 import 'package:crud_firebase/views/register.dart';
+import 'package:crud_firebase/views/user.profile.view.dart';
 import 'package:crud_firebase/widgets/passwordTextfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -55,7 +56,10 @@ class LoginView extends StatelessWidget {
                 )],
             ),
             SizedBox(height: 20,),
-            CustomButton(text: "Log In", onTap: (){}),
+            CustomButton(text: "Log In", onTap: (){
+              userController.loginUser(emailController.text, passwordController.text);
+              Get.to(ProfileView());
+            }),
             SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

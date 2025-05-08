@@ -1,3 +1,5 @@
+import 'package:bcrypt/bcrypt.dart';
+
 
 class UserModel {
   String? id;
@@ -19,11 +21,12 @@ class UserModel {
   });
 
   Map<String, dynamic> toMap() {
+    final hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
     return {
       'name': name,
       'age': age,
       'email': email,
-      'password': password,
+      'password': hashedPassword,
       'created_date': created_date,
       'updated_date': updated_date,
     };

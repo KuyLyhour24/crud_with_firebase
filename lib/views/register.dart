@@ -14,6 +14,7 @@ import '../widgets/textfield.dart';
 class RegisterView extends StatelessWidget {
   RegisterView({super.key});
   final UserController userController = Get.put(UserController());
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
   final ageController = TextEditingController();
   final emailController = TextEditingController();
@@ -38,9 +39,9 @@ class RegisterView extends StatelessWidget {
             children: [
               Text("Sign Up",
                 style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 30,
-                  color: Colors.lightBlue
+                    fontWeight: FontWeight.w600,
+                    fontSize: 30,
+                    color: Colors.lightBlue
                 ),
               ),
               SizedBox(height: 20,),
@@ -70,10 +71,10 @@ class RegisterView extends StatelessWidget {
                   updated_date: DateTime.now().toIso8601String(),
                 );
                 userController.addUser(user);
-                emailController.clear();
-                passwordController.clear();
                 nameController.clear();
+                emailController.clear();
                 ageController.clear();
+                passwordController.clear();
               }),
               SizedBox(height: 20,),
               CustomButton(text: "Login", onTap: ()=>Get.to(LoginView()))
